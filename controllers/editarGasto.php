@@ -1,24 +1,20 @@
-<?php 
-include  '../controllers/config.php'; 
+<?php
+include  '../controllers/config.php';
+// require_once '../models/gasto.php';
+// require_once '../db/db.php';
 
-// Procesar formulario para editar gasto
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_POST['action']) && $_POST['action'] === 'editar') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
     $descripcion = $_POST['descripcion'];
     $categoria = $_POST['categoria'];
     $cantidad = $_POST['cantidad'];
 
-    if ($categoria == 0) {
-        echo "Error: Debes seleccionar una categoría.";
-        exit;
-    }
-
-    $resultado = $gastoController->editarGasto($id, $descripcion, $categoria, $cantidad);
+    //$gastoModel = new Gasto();
+    $resultado = $gastoModel->actualizarGasto($id, $descripcion, $categoria, $cantidad);
 
     if ($resultado) {
-        header("Location: ../index.php");
-        exit;
+        echo json_encode(["status" => "success", "message" => "Gasto actualizado correctamente"]);
     } else {
-        die("Error al actualizar el gasto.");
+        echo json_encode(["status" => "error", "message" => "Error al actualizar el gasto"]);
     }
 }

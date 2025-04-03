@@ -6,25 +6,29 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formGasto" method="POST" action="controllers/agregarGasto.php">
-                    <div class="mb-3">
-                        <label for="cantidad" class="form-label">Cantidad:</label>
-                        <input type="number" name="cantidad" id="cantidad" class="form-control" required>
+                <form id="formGasto" method="POST" action="controllers/agregarGasto.php" class="form-gasto">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="cantidad" class="form-label">Cantidad:</label>
+                            <input type="number" name="cantidad" id="cantidad" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="categoria" class="form-label">Categoría:</label>
+                            <select name="categoria" id="categoria" class="form-control">
+                                <option value="0" selected>Seleccione una opción</option>
+                                <?php foreach ($categorias as $categoria): ?>
+                                    <option value="<?= $categoria['ID']; ?>"><?= $categoria['nombre']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="categoria" class="form-label">Categoría:</label>
-                        <select name="categoria" id="categoria" class="form-control">
-                            <option value="0" selected>Seleccione una opción</option>
-                            <?php foreach ($categorias as $categoria): ?>
-                                <option value="<?= $categoria['ID']; ?>"><?= $categoria['nombre']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="descripcion" class="form-label">Descripción:</label>
-                        <input type="text" name="descripcion" id="descripcion" class="form-control" required>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label for="descripcion" class="form-label">Descripción:</label>
+                            <input type="text" name="descripcion" id="descripcion" class="form-control" required>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar Gasto</button>
                 </form>

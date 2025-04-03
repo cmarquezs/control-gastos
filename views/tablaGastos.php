@@ -1,4 +1,6 @@
-<table class="table table-striped table-hover text-center">
+<?php include  './controllers/paginacion.php' ?>
+
+<table class="table table-striped table-hover text-center align-middle">
     <thead>
         <tr>
             <th>Descripción</th>
@@ -13,29 +15,30 @@
             <tr>
                 <td><?= $gasto['Descripcion']; ?></td>
                 <td><?= $gasto['nombre']; ?></td>
-                <td><?= number_format($gasto['Cantidad'], 2); ?></td>
+                <td><?= number_format($gasto['Cantidad']); ?></td>
                 <td><?= $gasto['Fecha']; ?></td>
                 <td>
-                    <!-- <a class="btn btn-warning" href="#?id=<?= $gasto['ID']; ?>"
-                        data-bs-toggle="modal" data-bs-target="#modalEditarGasto">
-                        Editar
-                    </a> -->
-
                     <button class="btn btn-warning"
                         data-bs-toggle="modal"
                         data-bs-target="#modalEditarGasto"
                         data-id="<?= $gasto['ID']; ?>"
                         data-descripcion="<?= $gasto['Descripcion']; ?>"
-                        data-categoria="<?= $gasto['nombre']; ?>"
+                        data-categoria="<?= $gasto['Categoria']; ?>"
                         data-cantidad="<?= $gasto['Cantidad']; ?>">
                         Editar
                     </button>
-                    <a class="btn btn-danger" href="controllers/GastoController.php?action=delete&id=<?= $gasto['ID']; ?>"
+                    <!-- <a class="btn btn-danger" href="controllers/eliminarGasto.php?action=delete&id=<?= $gasto['ID']; ?>"
                         onclick="return confirm('¿Seguro que quieres eliminar este gasto?')">
                         Eliminar
+                    </a> -->
+                    <a class="btn btn-danger eliminar-gasto" data-id="<?= $gasto['ID']; ?>">
+                        Eliminar
                     </a>
+
                 </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+<!-- Paginación -->
+<?php include  'paginacionView.php' ?>

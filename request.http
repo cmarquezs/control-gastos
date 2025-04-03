@@ -1,0 +1,26 @@
+### Obtener todos los gastos
+GET http://localhost/GASTOS/controllers/GastoController.php?action=listar
+
+### Agregar un nuevo gasto (POST)
+POST http://localhost/GASTOS/controllers/agregarGasto.php
+Content-Type: application/json
+
+{
+    "Descripcion": "Compra de suministros",
+    "Categoria": "6",
+    "Cantidad": 50000
+}
+
+### Editar un gasto existente (PUT)
+PUT http://localhost/GASTOS/controllers/editarGasto.php
+Content-Type: application/json
+
+{
+    "id": 1,
+    "descripcion": "Compra de papel",
+    "categoria": "Oficina",
+    "cantidad": 60000
+}
+
+### Eliminar un gasto (DELETE)
+DELETE http://localhost/GASTOS/controllers/eliminarGasto.php?id=1

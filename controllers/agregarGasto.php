@@ -1,5 +1,7 @@
-<?php 
+<?php
 include  '../controllers/config.php';
+// require_once '../models/gasto.php';
+// require_once '../db/db.php';
 
 // Procesar formulario para agregar gasto
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -8,22 +10,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cantidad = $_POST['cantidad'];
 
     if ($categoria == 0) {
-        echo("Error: Debes seleccionar una categoría.");
+        echo json_encode(["status" => "warning", "message" => "Debes seleccionar una categoria"]);
         exit;
     }
 
     $resultado = $gastoController->agregarGasto($descripcion, $categoria, $cantidad);
 
     if ($resultado) {
-        header("Location: ../index.php");
-        exit;
+        echo json_encode(["status" => "success", "message" => "Gasto registrado correctamente"]);
     } else {
-        die("Error al guardar el gasto.");
+        echo json_encode(["status" => "error", "message" => "Error al registrar el gasto"]);
     }
 }
-
-
-
-
-
-?>

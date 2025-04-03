@@ -37,14 +37,14 @@ class Gasto
         return $this->db->query("SELECT * FROM gastos_categorias")->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // public function obtenerGastoPorId($id)
-    // {
-    //     $sql = "SELECT * FROM gastos WHERE id = :id";
-    //     $stmt = $this->db->prepare($sql);
-    //     $stmt->bindParam(':id', $id);
-    //     $stmt->execute();
-    //     return $stmt->fetch(PDO::FETCH_ASSOC);
-    // }
+    public function obtenerGastoPorId($id)
+    {
+        $sql = "SELECT * FROM gastos WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
     public function actualizarGasto($id, $descripcion, $categoria, $cantidad)
     {

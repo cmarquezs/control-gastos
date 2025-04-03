@@ -30,52 +30,5 @@ class GastoController {
     }
 }
 
-$gastoController = new GastoController();
+// $gastoController = new GastoController();
 
-// Procesar formulario para agregar gasto
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $descripcion = $_POST['descripcion'];
-    $categoria = $_POST['categoria'];
-    $cantidad = $_POST['cantidad'];
-
-    if ($categoria == 0) {
-        echo("Error: Debes seleccionar una categoría.");
-        exit;
-    }
-
-    $resultado = $gastoController->agregarGasto($descripcion, $categoria, $cantidad);
-
-    if ($resultado) {
-        header("Location: ../index.php");
-        exit;
-    } else {
-        die("Error al guardar el gasto.");
-    }
-}
-
-// Procesar formulario para editar gasto
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-    $id = $_POST['id'];
-    $descripcion = $_POST['descripcion'];
-    $categoria = $_POST['categoria'];
-    $cantidad = $_POST['cantidad'];
-
-    if ($categoria == 0) {
-        echo "Error: Debes seleccionar una categoría.";
-        exit;
-    }
-
-    $resultado = $gastoController->editarGasto($id, $descripcion, $categoria, $cantidad);
-
-    if ($resultado) {
-        var_dump($_POST);
-
-        header("Location: ../index.php");
-        exit;
-    } else {
-        die("Error al actualizar el gasto.");
-    }
-}
-
-
-?>

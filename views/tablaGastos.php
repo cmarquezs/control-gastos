@@ -13,13 +13,14 @@
             <tr>
                 <td><?= $gasto['Descripcion']; ?></td>
                 <td><?= $gasto['nombre']; ?></td>
-                <td><?= $gasto['Cantidad']; ?></td>
+                <td><?= number_format($gasto['Cantidad'], 2); ?></td>
                 <td><?= $gasto['Fecha']; ?></td>
                 <td>
                     <!-- <a class="btn btn-warning" href="#?id=<?= $gasto['ID']; ?>"
                         data-bs-toggle="modal" data-bs-target="#modalEditarGasto">
                         Editar
                     </a> -->
+
                     <button class="btn btn-warning"
                         data-bs-toggle="modal"
                         data-bs-target="#modalEditarGasto"
@@ -29,7 +30,7 @@
                         data-cantidad="<?= $gasto['Cantidad']; ?>">
                         Editar
                     </button>
-                    <a class="btn btn-danger " href="#?id=<?= $gasto['ID']; ?>"
+                    <a class="btn btn-danger" href="controllers/GastoController.php?action=delete&id=<?= $gasto['ID']; ?>"
                         onclick="return confirm('¿Seguro que quieres eliminar este gasto?')">
                         Eliminar
                     </a>

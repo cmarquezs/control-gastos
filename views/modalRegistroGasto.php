@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formGasto" method="POST" action="controllers/GastoController.php">
+                <form id="formGasto" method="POST" action="controllers/agregarGasto.php">
                     <div class="mb-3">
                         <label for="cantidad" class="form-label">Cantidad:</label>
                         <input type="number" name="cantidad" id="cantidad" class="form-control" required>

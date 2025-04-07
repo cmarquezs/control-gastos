@@ -96,8 +96,7 @@ class Gasto
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
-    // Función para contar el total de registros
+    
     public function contarTotalGastos()
     {
         $sql = "SELECT COUNT(*) as total FROM gastos";

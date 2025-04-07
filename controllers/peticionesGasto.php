@@ -22,3 +22,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(["status" => "error", "message" => "Error al registrar el gasto"]);
     }
 }
+
+// Procesar formulario para Editar gasto
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+    $id = $_POST['id'];
+    $descripcion = $_POST['descripcion'];
+    $categoria = $_POST['categoria'];
+    $cantidad = $_POST['cantidad'];
+
+    $resultado = $gastoModel->actualizarGasto($id, $descripcion, $categoria, $cantidad);
+
+    if ($resultado) {
+        echo json_encode(["status" => "success", "message" => "Gasto actualizado correctamente"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Error al actualizar el gasto"]);
+    }
+}

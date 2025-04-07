@@ -7,8 +7,8 @@
             </div>
             <div class="modal-body">
                 <form id="formEditarGasto" method="POST" action="controllers/editarGasto.php" class="form-gasto">
-                    <input type="hidden" name="id" id="id"> <!-- ID del gasto -->
-                    <input type="hidden" name="action" value="editar"> <!-- Acción -->
+                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="action" value="editar">
 
                     <div class="row">
                         <div class="mb-3 col-md-6">

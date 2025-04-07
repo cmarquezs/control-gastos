@@ -27,10 +27,6 @@
                         data-cantidad="<?= $gasto['Cantidad']; ?>">
                         Editar
                     </button>
-                    <!-- <a class="btn btn-danger" href="controllers/eliminarGasto.php?action=delete&id=<?= $gasto['ID']; ?>"
-                        onclick="return confirm('¿Seguro que quieres eliminar este gasto?')">
-                        Eliminar
-                    </a> -->
                     <a class="btn btn-danger eliminar-gasto" data-id="<?= $gasto['ID']; ?>">
                         Eliminar
                     </a>

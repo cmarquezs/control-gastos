@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         //console.log("ID Categoría seleccionada:", categoria);
 
-        // Recorrer opciones y seleccionar la correcta
         for (let option of modalCategoriaSelect.options) {
             if (option.value == categoria) {
                 option.selected = true;
@@ -107,6 +106,4 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
-
-
 });
